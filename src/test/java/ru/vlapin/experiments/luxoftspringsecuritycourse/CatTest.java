@@ -1,12 +1,5 @@
 package ru.vlapin.experiments.luxoftspringsecuritycourse;
 
-import static com.jayway.jsonpath.JsonPath.parse;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.springframework.hateoas.MediaTypes.HAL_JSON_VALUE;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import org.junit.jupiter.api.DisplayName;
@@ -16,6 +9,13 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.web.servlet.MockMvc;
+
+import static com.jayway.jsonpath.JsonPath.parse;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.springframework.hateoas.MediaTypes.HAL_JSON_VALUE;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @SpringBootTest
 @AutoConfigureMockMvc
@@ -30,10 +30,10 @@ class CatTest {
   @DisplayName("Cats is accessible via REST")
   void catsIsAccessibleViaRESTTest() {
     mockMvc.perform(get("/cats"))
-      .andExpect(status().isOk())
-      .andExpect(content().contentType(HAL_JSON_VALUE))
-      .andExpect(mvcResult -> assertEquals(3,
-          parse(mvcResult.getResponse().getContentAsString())
-              .<Integer>read("$.page.totalElements").intValue()));
+        .andExpect(status().isOk())
+        .andExpect(content().contentType(HAL_JSON_VALUE))
+        .andExpect(mvcResult -> assertEquals(3,
+            parse(mvcResult.getResponse().getContentAsString())
+                .<Number>read("$.page.totalElements").intValue()));
   }
 }

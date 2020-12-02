@@ -3,3 +3,9 @@ mail:
     authMethod: basic
     username: user
     password: qwerty
+
+spring:
+  security:
+    user:
+      password: qwerty
+      roles: ADMIN, USER

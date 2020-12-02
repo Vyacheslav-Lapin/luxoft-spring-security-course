@@ -8,8 +8,8 @@ import org.springframework.boot.context.properties.ConstructorBinding;
  * Limitations:
  * - no defaults (!!!)
  * - {@code @lombok.RequiredArgsConstructor} generate constructor AFTER spring-configuration-metadata.json,
- *   so, for correct auto-complete *.properties (and *.yaml) for this bean in IDEA, you have to Delombok
- *   {@code @RequiredArgsConstructor} before compile...
+ * so, for correct auto-complete *.properties (and *.yaml) for this bean in IDEA, you have to Delombok
+ * {@code @RequiredArgsConstructor} before compile...
  */
 @Getter
 @ConstructorBinding

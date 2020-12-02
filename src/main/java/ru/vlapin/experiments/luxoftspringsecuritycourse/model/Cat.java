@@ -1,21 +1,12 @@
 package ru.vlapin.experiments.luxoftspringsecuritycourse.model;
 
-import static lombok.AccessLevel.PRIVATE;
-
-import java.util.UUID;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Version;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
+import lombok.*;
 import lombok.EqualsAndHashCode.Include;
-import lombok.NoArgsConstructor;
-import lombok.NonNull;
-import lombok.RequiredArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+
+import javax.persistence.*;
+import java.util.UUID;
+
+import static lombok.AccessLevel.PRIVATE;
 
 @Data
 @Entity
@@ -37,5 +28,4 @@ public class Cat {
 
   @NonNull
   String name;
-
 }
